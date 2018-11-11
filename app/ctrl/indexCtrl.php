@@ -8,16 +8,22 @@
 
 namespace app\ctrl;
 
+use core\imooc;
 use core\lib\model;
 
-class indexCtrl
+class indexCtrl extends imooc
 {
     public function index()
     {
-        p('index ctrl');
-        $model = new model();
-        $sql = "SELECT * FROM c";
-        $ret = $model->query($sql);
-        p($ret->fetchAll());
+        $data = 'Hello World';
+        $title = '视图文件';
+        $this->assign('title', $title);
+        $this->assign('data', $data);
+        $this->display('index.html');
+//        p('index ctrl');
+//        $model = new model();
+//        $sql = "SELECT * FROM c";
+//        $ret = $model->query($sql);
+//        p($ret->fetchAll());
     }
 }

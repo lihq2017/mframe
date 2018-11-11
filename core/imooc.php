@@ -6,6 +6,8 @@ class imooc
 {
 	public static $classMap = [];
 
+	public $assign = [];
+
     /**
      * @throws \Exception
      */
@@ -41,4 +43,18 @@ class imooc
 			return false;
 		}
 	}
+
+	public function assign($name, $value)
+    {
+        $this->assign[$name] = $value;
+    }
+
+    public function display($file)
+    {
+        $file = APP.'/views/'.$file;
+        if (is_file($file)){
+            extract($this->assign);
+            include $file;
+        }
+    }
 }

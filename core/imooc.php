@@ -2,6 +2,8 @@
 
 namespace core;
 
+use core\lib\log;
+
 class imooc
 {
 	public static $classMap = [];
@@ -13,6 +15,7 @@ class imooc
      */
 	public static function run()
 	{
+	    log::init();
 		$route = new \core\lib\route();
 		$ctrlClass = $route->ctrl;
 		$action = $route->action;
@@ -23,6 +26,7 @@ class imooc
 		    require_once $ctrlFile;
 		    $ctrl = new $ctrlClass();
 		    $ctrl->$action();
+		    log::log('ctrl:'.$ctrlClass.'  '.'action:'.$action);
         } else {
             throw new \Exception('找不到控制器'.$ctrlClass);
         }

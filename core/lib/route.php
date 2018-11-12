@@ -6,6 +6,10 @@ class route
 	public $ctrl;
 	public $action;
 
+    /**
+     * route constructor.
+     * @throws \Exception
+     */
 	public function __construct()
 	{
 		// xxx.com/index/index
@@ -27,7 +31,7 @@ class route
 				$this->action = $patharr[1];
 				unset($patharr[1]);
 			} else {
-				$this->action = 'index';
+				$this->action = conf::get('ACTION', 'route');
 			}
 			// url多余部分转化成GET
 			// id/1/str/2/test/3
@@ -40,8 +44,8 @@ class route
 				$i = $i + 2;
 			}
 		} else {
-			$this->ctrl = 'index';
-			$this->action = 'index';
+			$this->ctrl = conf::get('CTRL', 'route');
+			$this->action = conf::get('ACTION', 'route');
 		}
 
 	}

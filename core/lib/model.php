@@ -9,14 +9,15 @@ namespace core\lib;
 
 class model extends \PDO
 {
+    /**
+     * model constructor.
+     * @throws \Exception
+     */
     public function __construct()
     {
-        $dsn = 'mysql:host=localhost;dbname=mframe';
-        $username = 'root';
-        $passwd = 'root';
-        $options = [];
+        $database = conf::all('database');
         try{
-            parent::__construct($dsn, $username, $passwd, $options);
+            parent::__construct($database['DSN'], $database['USERNAME'], $database['PASSWORD'], $database['OPTIONS']);
         } catch (\PDOException $e){
             p($e->getMessage());
         }

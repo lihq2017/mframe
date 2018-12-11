@@ -19,7 +19,7 @@ class indexCtrl extends imooc
      */
     public function index()
     {
-        p('hello');
+        dump('hello');
 //        $temp1 = conf::get('CTRL', 'route');
 //        $data = 'Hello World';
 //        $title = '视图文件';

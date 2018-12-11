@@ -55,10 +55,15 @@ class imooc
 
     public function display($file)
     {
-        $file = APP.'/views/'.$file;
-        if (is_file($file)){
-            extract($this->assign);
-            include $file;
+        $file_path = APP.'/views/'.$file;
+        if (is_file($file_path)){
+            $loader = new \Twig_Loader_Filesystem(APP.'/views');
+            $twig = new \Twig_Environment($loader, [
+                'cache' => IMOOC.'/log/twig',
+                'debug' => DEBUG
+            ]);
+            $template = $twig->loadTemplate($file);
+            $template->display($this->assign ?? []);
         }
     }
 }

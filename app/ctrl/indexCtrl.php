@@ -20,27 +20,32 @@ class indexCtrl extends imooc
      */
     public function index()
     {
-        $model = new cModel();
+//        $model = new cModel();
 //        $ret = $model->lists();
 //        dump($ret);
 //        $ret = $model->getOne(4);
 //        dump($ret);
 //        $ret = $model->setOne(4, ['name' => 'fff']);
 //        dump($ret);
-        $ret = $model->delOne(4);
-        dump($ret);
+//        $ret = $model->delOne(4);
+//        dump($ret);
 
 //        dump($data);
 //        $temp1 = conf::get('CTRL', 'route');
-//        $data = 'Hello World';
-//        $title = '视图文件';
-//        $this->assign('title', $title);
-//        $this->assign('data', $data);
-//        $this->display('index.html');
+        $data = 'index';
+        $this->assign('data', $data);
+        $this->display('index.html');
 //        p('index ctrl');
 //        $model = new model();
 //        $sql = "SELECT * FROM c";
 //        $ret = $model->query($sql);
 //        p($ret->fetchAll());
+    }
+
+    public function test()
+    {
+        $data = 'test';
+        $this->assign('data', $data);
+        $this->display('test.html');
     }
 }

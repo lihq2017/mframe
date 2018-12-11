@@ -8,6 +8,7 @@
 
 namespace app\ctrl;
 
+use app\model\cModel;
 use core\imooc;
 use core\lib\conf;
 use core\lib\model;
@@ -19,7 +20,17 @@ class indexCtrl extends imooc
      */
     public function index()
     {
-        dump('hello');
+        $model = new cModel();
+//        $ret = $model->lists();
+//        dump($ret);
+//        $ret = $model->getOne(4);
+//        dump($ret);
+//        $ret = $model->setOne(4, ['name' => 'fff']);
+//        dump($ret);
+        $ret = $model->delOne(4);
+        dump($ret);
+
+//        dump($data);
 //        $temp1 = conf::get('CTRL', 'route');
 //        $data = 'Hello World';
 //        $title = '视图文件';

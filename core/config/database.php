@@ -6,8 +6,9 @@
  * Time: 22:48
  */
 return [
-    'DSN' => 'mysql:host=localhost;dbname=mframe',
-    'USERNAME' => 'root',
-    'PASSWORD' => 'root',
-    'OPTIONS' => [],
+    'database_type' => 'mysql',
+    'database_name' => 'mframe',
+    'server' => 'localhost',
+    'username' => 'root',
+    'password' => 'root'
 ];
